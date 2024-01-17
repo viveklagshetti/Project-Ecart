@@ -4,13 +4,13 @@ import { useParams } from "react-router-dom";
 import { Row, Col, Card, Button } from "react-bootstrap"; //React-Bootstrap Component Import
 import Skeleton from "react-loading-skeleton"; //Loading Skeleton Import
 import { Link } from "react-router-dom";
-
+import { useCallback } from "react";
 //Redux Reducers Import
 import { useDispatch, useSelector } from "react-redux";
 import { addCart, fetchSingleProduct } from "../redux/action";
 
 //Toast container imports
-import { ToastContainer} from "react-toastify"; //Toast container
+import { ToastContainer } from "react-toastify"; //Toast container
 import "react-toastify/dist/ReactToastify.css"; // Toast container CSS
 
 const ProductPage = () => {
@@ -37,9 +37,9 @@ const ProductPage = () => {
   };
 
   useEffect(() => {
-    
+    window.scrollTo(0, 0);
     getProduct();
-  }, [dispatch, id]);
+  }, [id]);
 
   //Initialing the fetchSingleProduct method with getProduct method
   const getProduct = () => {
@@ -117,28 +117,13 @@ const ProductPage = () => {
   };
 
   useEffect(() => {
-    // Scroll to the top of the page when a new product is clicked
-    window.scrollTo(0, 0);
-    getProduct();
-  }, [dispatch, id]);
-
-
-  useEffect(() => {
     //If the SingleProduct Data is Present then only the filterProduct will initilised
     if (singleProduct && singleProduct.category) {
       // Update the similar products when the category changes
       filterProduct(singleProduct.category);
     }
-  }, [singleProduct]);
+  }, []);
 
-  
-  // useEffect(() => {
-  //   //If the SingleProduct Data is Present then only the filterProduct will initilised
-  //   if (singleProduct && singleProduct.category) {
-  //     // Update the similar products when the category changes
-  //     filterProduct(singleProduct.category);
-  //   }
-  // });
 
   const SimilarProduct = () => {
     const filteredProducts = filter.filter(
