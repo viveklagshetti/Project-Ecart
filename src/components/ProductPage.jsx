@@ -52,7 +52,7 @@ const ProductPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     getProduct();
-  }, [getProduct, id]); // Include getProduct and id in the dependency array
+  }, [id]);
 
   // Loading when the data is fetching
   const Loading = () => {
@@ -117,10 +117,12 @@ const ProductPage = () => {
   };
 
   useEffect(() => {
+    //If the SingleProduct Data is Present then only the filterProduct will initilised
     if (singleProduct && singleProduct.category) {
+      // Update the similar products when the category changes
       filterProduct(singleProduct.category);
     }
-  }, [singleProduct]); // Include singleProduct and filterProduct in the dependency array
+  }, [singleProduct]);
 
   const SimilarProduct = () => {
     const filteredProducts = filter.filter(
