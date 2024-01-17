@@ -52,7 +52,7 @@ const ProductPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     getProduct();
-  }, [id]);
+  }, [id, getProduct]);
 
   // Loading when the data is fetching
   const Loading = () => {
@@ -109,21 +109,38 @@ const ProductPage = () => {
   const [filter, setFilterData] = useState(allProduct); //To filter with the category
 
   // Function to filter products based on category
-  const filterProduct = (category) => {
-    const updatedData = allProduct.filter(
-      (product) => product.category === category
-    );
-    setFilterData(updatedData);
-  };
+  // const filterProduct = (category) => {
+  //   const updatedData = allProduct.filter(
+  //     (product) => product.category === category
+  //   );
+  //   setFilterData(updatedData);
+  // };
+
+  // useEffect(() => {
+  //   //If the SingleProduct Data is Present then only the filterProduct will initilised
+  //   if (singleProduct && singleProduct.category) {
+  //     // Update the similar products when the category changes
+  //     filterProduct(singleProduct.category);
+  //   }
+  // }, [singleProduct]);
+
+  const filterProduct = useCallback(
+    (category) => {
+      const updatedData = allProduct.filter(
+        (product) => product.category === category
+      );
+      setFilterData(updatedData);
+    },
+    [allProduct]
+  );
 
   useEffect(() => {
-    //If the SingleProduct Data is Present then only the filterProduct will initilised
+    // If the SingleProduct Data is Present then only the filterProduct will be initialized
     if (singleProduct && singleProduct.category) {
       // Update the similar products when the category changes
       filterProduct(singleProduct.category);
     }
-  }, [singleProduct]);
-
+  }, [singleProduct, filterProduct]);
   const SimilarProduct = () => {
     const filteredProducts = filter.filter(
       (product) => product.id !== singleProduct.id
