@@ -3,7 +3,7 @@ let initialState = {
   error: "",
 };
 
-export const userAddReducer = (state = initialState, action) => {
+const userAddReducer = (state = initialState, action) => {
   if (action.type === "USER_ADD_SUCCESS") {
     return {
       user: action.payload,
@@ -17,3 +17,4 @@ export const userAddReducer = (state = initialState, action) => {
   }
   return state;
 };
+export default userAddReducer;

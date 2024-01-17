@@ -3,7 +3,7 @@ let initialState = {
   error: "",
 };
 
-export const fetchAllProductReducer = (state = initialState, action) => {
+const fetchAllProductReducer = (state = initialState, action) => {
   if (action.type === "FETCH_ALL_PRODUCT_SUCCESS") {
     return {
       products: action.payload,
@@ -17,3 +17,5 @@ export const fetchAllProductReducer = (state = initialState, action) => {
   }
   return state;
 };
+
+export default fetchAllProductReducer;
