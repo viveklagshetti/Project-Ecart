@@ -1,0 +1,45 @@
+/* font importing */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@1,200&family=Noto+Serif&family=Open+Sans:ital@0;1&family=Poppins:wght@30;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Noto+Sans:ital,wght@1,200&family=Noto+Serif&family=Open+Sans:ital@0;1&family=Poppins:wght@300;400;500&display=swap");
+body {
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  padding-top: 70px;
+}
+.navbarItems {
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+}
+.navbarItems a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.808);
+}
+.searchBar {
+  width: 300px;
+  border-radius: 25px;
+  padding-left: 35px;
+}
+.searchIcon {
+  position: absolute;
+  margin: 8px 8px;
+}
+.cardBody {
+  text-align: center;
+  padding: 10px 25px;
+  height: 100%;
+  margin: auto;
+}
+.cardBody:hover {
+  box-shadow: 0.5px 0.5px 10px 2px;
+}
+.cardImage {
+  margin-bottom: 0px;
+  height: 300px;
+  width: 100%;
+  padding: 5%;
+}
+.cardTitle {
+  font-size: 25px;
+  /* margin-bottom: 22px; */
+}
