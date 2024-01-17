@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { Row, Col, Card, Button } from "react-bootstrap"; //React-Bootstrap Component Import
 import Skeleton from "react-loading-skeleton"; //Loading Skeleton Import
 import { Link } from "react-router-dom";
+import { useCallback } from "react";
 //Redux Reducers Import
 import { useDispatch, useSelector } from "react-redux";
 import { addCart, fetchSingleProduct } from "../redux/action";
@@ -35,15 +36,10 @@ const ProductPage = () => {
     dispatch(addCart(singleProduct));
   };
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    getProduct(dispatch);
-  }, [id,dispatch]);
-
   //Initialing the fetchSingleProduct method with getProduct method
-  const getProduct = () => {
+  const getProduct = useCallback(() => {
     setLoading(true);
-    dispatch(fetchSingleProduct(id)) // Dispatch the action to fetch a single product
+    dispatch(fetchSingleProduct(id))
       .then(() => {
         setLoading(false);
       })
@@ -51,7 +47,12 @@ const ProductPage = () => {
         setLoading(false);
         console.error("Error fetching product:", error);
       });
-  };
+  }, [dispatch, id]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    getProduct();
+  }, [getProduct, id]); // Include getProduct and id in the dependency array
 
   // Loading when the data is fetching
   const Loading = () => {
@@ -116,13 +117,10 @@ const ProductPage = () => {
   };
 
   useEffect(() => {
-    //If the SingleProduct Data is Present then only the filterProduct will initilised
     if (singleProduct && singleProduct.category) {
-      // Update the similar products when the category changes
       filterProduct(singleProduct.category);
     }
-  }, [singleProduct]);
-
+  }, [singleProduct]); // Include singleProduct and filterProduct in the dependency array
 
   const SimilarProduct = () => {
     const filteredProducts = filter.filter(
