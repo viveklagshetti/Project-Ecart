@@ -36,10 +36,15 @@ const ProductPage = () => {
     dispatch(addCart(singleProduct));
   };
 
-  useEffect(() => {
+  // useEffect(() => {
+    
+  //   getProduct();
+  // }, [dispatch, id]);
+
+    useEffect(() => {
     
     getProduct();
-  }, [dispatch, id]);
+  });
 
   //Initialing the fetchSingleProduct method with getProduct method
   const getProduct = () => {
@@ -115,19 +120,34 @@ const ProductPage = () => {
     setFilterData(updatedData);
   };
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   // Scroll to the top of the page when a new product is clicked
+  //   window.scrollTo(0, 0);
+  //   getProduct();
+  // }, [dispatch, id]);
+
+    useEffect(() => {
     // Scroll to the top of the page when a new product is clicked
     window.scrollTo(0, 0);
     getProduct();
-  }, [dispatch, id]);
+  });
 
+  // useEffect(() => {
+  //   //If the SingleProduct Data is Present then only the filterProduct will initilised
+  //   if (singleProduct && singleProduct.category) {
+  //     // Update the similar products when the category changes
+  //     filterProduct(singleProduct.category);
+  //   }
+  // }, [singleProduct]);
+
+  
   useEffect(() => {
     //If the SingleProduct Data is Present then only the filterProduct will initilised
     if (singleProduct && singleProduct.category) {
       // Update the similar products when the category changes
       filterProduct(singleProduct.category);
     }
-  }, [singleProduct]);
+  });
 
   const SimilarProduct = () => {
     const filteredProducts = filter.filter(
