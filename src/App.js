@@ -10,7 +10,7 @@ import ProductPage from "./components/ProductPage";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 
-import { ToastContainer, toast } from "react-toastify"; //Toast container
+import { ToastContainer} from "react-toastify"; //Toast container
 import "react-toastify/dist/ReactToastify.css"; // Toast container CSS
 
 function App() {

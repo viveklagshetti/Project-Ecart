@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { delCart, updateQuantity } from "../redux/action";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 const Cart = () => {
