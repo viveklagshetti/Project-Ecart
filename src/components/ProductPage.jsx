@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addCart, fetchSingleProduct } from "../redux/action";
 
 //Toast container imports
-import { ToastContainer, toast } from "react-toastify"; //Toast container
+import { ToastContainer} from "react-toastify"; //Toast container
 import "react-toastify/dist/ReactToastify.css"; // Toast container CSS
 
 const ProductPage = () => {
@@ -37,6 +37,7 @@ const ProductPage = () => {
   };
 
   useEffect(() => {
+    
     getProduct();
   }, [dispatch, id]);
 

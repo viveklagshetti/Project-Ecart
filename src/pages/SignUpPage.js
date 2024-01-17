@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Alert } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { userAdd } from "../redux/action";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +13,7 @@ const SignUpPage = () => {
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  // const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const handleAccount = (event) => {
     event.preventDefault();
@@ -165,7 +165,7 @@ const SignUpPage = () => {
                     <img
                       src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
                       className="img-fluid"
-                      alt="Sample image"
+                    
                     />
                   </div>
                 </div>

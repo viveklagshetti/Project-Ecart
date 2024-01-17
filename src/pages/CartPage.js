@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchAllProducts } from "../redux/action";
+import React from "react";
 import HandleCart from "../components/HandleCart";
 
 const CartPage = () => {

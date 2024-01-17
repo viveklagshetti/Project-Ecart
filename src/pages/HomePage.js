@@ -7,7 +7,7 @@ import BG4 from "../assets/Backgound_images/bg4.png";
 import BG5 from "../assets/Backgound_images/bg5.png";
 import BG6 from "../assets/Backgound_images/bg6.png";
 import lower from "../assets/Backgound_images/home-lower-image.png";
-import { Button, Row, Col } from "react-bootstrap";
+
 import { Product } from "../components/Products";
 
 const HomePage = () => {

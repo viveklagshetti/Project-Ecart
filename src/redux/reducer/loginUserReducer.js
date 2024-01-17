@@ -1,5 +1,3 @@
-import { toast } from "react-toastify";
-
 const initialState = {
   user: null,
   token: "",

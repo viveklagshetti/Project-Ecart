@@ -8,12 +8,12 @@ import { addCart, fetchAllProducts } from "../redux/action";
 import { useDispatch, useSelector } from "react-redux";
 
 //Toast container Imports statements
-import { ToastContainer, toast } from "react-toastify"; //Toast container
+import { ToastContainer} from "react-toastify"; //Toast container
 import "react-toastify/dist/ReactToastify.css"; // Toast container CSS
 
 export const Product = () => {
   //UseState use
-  const [error, setErrorText] = useState(""); //Handling errors
+  // const [error, setErrorText] = useState(""); //Handling errors
   const [loading, setLoading] = useState(false); //Loading before the database
 
   //redux methods
@@ -36,7 +36,7 @@ export const Product = () => {
         setLoading(false);
         setErrorText("No Data Found");
       });
-  }, []);
+  }, [dispatch]);
 
   //FEATURE 1 :- Adding product in the category to store the addProductToCart Function
 

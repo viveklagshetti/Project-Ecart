@@ -1,4 +1,3 @@
-import { type } from "@testing-library/user-event/dist/type";
 import * as api from "../../services/api";
 
 //Fetch All Product Reducer Starts..
