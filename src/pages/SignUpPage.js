@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Button, Alert } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import { Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { userAdd } from "../redux/action";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import SignupImage from "../assets/signup_background.png";
 const SignUpPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const userAddState = useSelector((state) => state.userAddReducer);
+  // const userAddState = useSelector((state) => state.userAddReducer);
 
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
@@ -59,14 +59,14 @@ const SignUpPage = () => {
       <div className="container h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-lg-12 col-xl-11">
-            {userAddState.error && (
+            {/* {userAddState.error && (
               <Alert variant="danger">
                 Error: {userAddState.error.message}
               </Alert>
             )}
             {showSuccessMessage && (
               <Alert variant="success">User added successfully!</Alert>
-            )}
+            )} */}
             <div className="card text-black" style={{ borderRadius: "25px" }}>
               <div className="card-body p-md-5">
                 <div className="row justify-content-center">
@@ -162,11 +162,7 @@ const SignUpPage = () => {
                     </form>
                   </div>
                   <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                    <img
-                      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                      className="img-fluid"
-                    
-                    />
+                  <img className="img-fluid" src={SignupImage} alt="" aria-hidden="true" />
                   </div>
                 </div>
               </div>

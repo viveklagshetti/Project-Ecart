@@ -34,7 +34,7 @@ export const Product = () => {
       .catch((error) => {
         console.error("Error fetching products:", error);
         setLoading(false);
-        setErrorText("No Data Found");
+        // setErrorText("No Data Found");
       });
   }, [dispatch]);
 
