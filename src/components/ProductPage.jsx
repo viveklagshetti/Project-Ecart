@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { Row, Col, Card, Button } from "react-bootstrap"; //React-Bootstrap Component Import
 import Skeleton from "react-loading-skeleton"; //Loading Skeleton Import
 import { Link } from "react-router-dom";
-import { useCallback } from "react";
 //Redux Reducers Import
 import { useDispatch, useSelector } from "react-redux";
 import { addCart, fetchSingleProduct } from "../redux/action";
@@ -38,8 +37,8 @@ const ProductPage = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    getProduct();
-  }, [id]);
+    getProduct(dispatch);
+  }, [id,dispatch]);
 
   //Initialing the fetchSingleProduct method with getProduct method
   const getProduct = () => {
@@ -122,7 +121,7 @@ const ProductPage = () => {
       // Update the similar products when the category changes
       filterProduct(singleProduct.category);
     }
-  }, []);
+  }, [singleProduct]);
 
 
   const SimilarProduct = () => {
