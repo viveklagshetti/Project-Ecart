@@ -8,12 +8,10 @@ import SignupImage from "../assets/signup_background.png";
 const SignUpPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // const userAddState = useSelector((state) => state.userAddReducer);
 
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
-  // const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const handleAccount = (event) => {
     event.preventDefault();
@@ -42,31 +40,11 @@ const SignUpPage = () => {
     }
   };
 
-  // useEffect(() => {
-  //   if (userAddState.user) {
-  //     setShowSuccessMessage(true);
-
-  //     // Set a timeout to hide the success message after 1 second
-  //     setTimeout(() => {
-  //       setShowSuccessMessage(false);
-  //       navigate("/login");
-  //     }, 2000);
-  //   }
-  // }, [userAddState.user, navigate]);
-
   return (
     <section className="vh-100" style={{ backgroundColor: "#eee" }}>
       <div className="container h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-lg-12 col-xl-11">
-            {/* {userAddState.error && (
-              <Alert variant="danger">
-                Error: {userAddState.error.message}
-              </Alert>
-            )}
-            {showSuccessMessage && (
-              <Alert variant="success">User added successfully!</Alert>
-            )} */}
             <div className="card text-black" style={{ borderRadius: "25px" }}>
               <div className="card-body p-md-5">
                 <div className="row justify-content-center">
