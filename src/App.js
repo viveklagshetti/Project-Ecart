@@ -9,8 +9,8 @@ import "boxicons";
 import ProductPage from "./components/ProductPage";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
-
-import { ToastContainer} from "react-toastify"; //Toast container
+import Footer from "./components/Footer";
+import { ToastContainer } from "react-toastify"; //Toast container
 import "react-toastify/dist/ReactToastify.css"; // Toast container CSS
 
 function App() {
@@ -28,6 +28,7 @@ function App() {
           <Route path="/signup" Component={SignUpPage} />
           <Route path="/cart" component={CartPage}></Route>
         </Routes>
+        <Footer></Footer>
       </BrowserRouter>
     </div>
   );

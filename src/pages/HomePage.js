@@ -76,6 +76,8 @@ const HomePage = () => {
 
       {/* Product component */}
       <Product />
+
+      
     </div>
   );
 };
