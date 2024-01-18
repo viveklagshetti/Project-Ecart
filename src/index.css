@@ -43,3 +43,14 @@ body {
   font-size: 25px;
   /* margin-bottom: 22px; */
 }
+
+
+/* Add this CSS in your global stylesheet or as a separate stylesheet */
+/* Add this CSS in your global stylesheet or as a separate stylesheet */
+
+/* Set the aspect ratio for the images */
+.aspect-ratio {
+  width: 100% ;
+  min-height: 50vh; /* Adjust this value based on your design preferences */
+  object-fit:cover;
+}

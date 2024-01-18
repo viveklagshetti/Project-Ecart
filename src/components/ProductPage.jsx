@@ -151,20 +151,23 @@ const ProductPage = () => {
                   >
                     ${product.price}
                   </Card.Text>
-                  <Link to={`/shop/${product.id}`} className="text-decoration-none">
-                  <div className="d-grid gap-2 d-md-flex justify-content-md-between mb-1 ">
-                    <Button variant="outline-dark">Buy Now</Button>
-                    <Button
-                      variant="dark"
-                      onClick={() => {
-                        handleAddProductToCart(product);
-                      }}
-                      className="ms-md-2"
-                    >
-                      Add to Cart
-                    </Button>
-                  </div>
-                </Link>
+                  <Link
+                    to={`/shop/${product.id}`}
+                    className="text-decoration-none"
+                  >
+                    <div className="d-grid gap-2 d-md-flex justify-content-md-between mb-1 ">
+                      <Button variant="outline-dark">Buy Now</Button>
+                      <Button
+                        variant="dark"
+                        onClick={() => {
+                          handleAddProductToCart(product);
+                        }}
+                        className="ms-md-2"
+                      >
+                        Add to Cart
+                      </Button>
+                    </div>
+                  </Link>
                 </Card.Body>
               </Card>
             </Col>
@@ -176,19 +179,19 @@ const ProductPage = () => {
 
   const ShowProduct = () => {
     return (
-      <div className="container mt-2 mb-5">
+      <div className="container mt-5 mb-5">
         <Row>
           <Col md={6}>
             <img
-              className="img-fluid mt-5"
+              className="img-fluid mt-0"
               src={singleProduct.image}
               alt={singleProduct.title}
               style={{ maxWidth: "100%", height: "auto", maxHeight: "500px" }}
             />
           </Col>
-          <Col md={6} className="">
+          <Col md={6} className="mt-5 mt-md-0">
             <h1
-              className="text-uppercase text-black-50 mt-5"
+              className="text-uppercase text-black-50"
               style={{ fontFamily: "Poppins" }}
             >
               {singleProduct.category}
@@ -199,7 +202,7 @@ const ProductPage = () => {
             >
               {singleProduct.title}
             </h1>
-            <h3 className="mt-3" style={{ fontFamily: "Poppins" }}>
+            <h3 style={{ fontFamily: "Poppins" }}>
               Rating {singleProduct.rating && singleProduct.rating.rate}{" "}
               <span>
                 <box-icon
@@ -210,36 +213,42 @@ const ProductPage = () => {
               </span>
             </h3>
             <h1
-              className="mt-3"
               style={{
                 fontFamily: "Open Sans",
-                fontSize: "50px",
+                fontSize: "60px",
                 fontWeight: "600",
               }}
             >
               ${singleProduct.price}
             </h1>
             <p
-              className=""
               style={{
                 fontSize: "17px",
                 maxWidth: "100%",
                 marginBottom: "20px",
               }}
+              className="mt-3"
             >
               {singleProduct.description}
             </p>
-            <Button variant="dark me-2" className="mb-2 mb-md-0 ">
-              Buy Now
-            </Button>
-            <Button
-              variant="outline-dark"
-              onClick={() => {
-                handleAddProductToCart(singleProduct);
-              }}
-            >
-              Add to Cart
-            </Button>
+            <Row className="mt-3">
+              <Col xs={6} className="mb-2 mb-md-0">
+                <Button variant="dark" className="w-100">
+                  Buy Now
+                </Button>
+              </Col>
+              <Col xs={6}>
+                <Button
+                  variant="outline-dark"
+                  onClick={() => {
+                    handleAddProductToCart(singleProduct);
+                  }}
+                  className="w-100"
+                >
+                  Add to Cart
+                </Button>
+              </Col>
+            </Row>
           </Col>
         </Row>
       </div>

@@ -154,10 +154,10 @@ export const Product = () => {
               variant="outline-dark"
               className="w-100"
               onClick={() => {
-                filterProduct("jewelry");
+                filterProduct("jewelery");
               }}
             >
-              Jewelry
+              jewelery
             </Button>
           </Col>
         </Row>
