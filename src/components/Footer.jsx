@@ -97,7 +97,7 @@ const Footer = () => {
                 India, Maharashtra, Solapur - 41005
               </p>
               <p>
-                info@example.com
+                Ecart@gmail.com
               </p>
             </Col>
           </Row>
