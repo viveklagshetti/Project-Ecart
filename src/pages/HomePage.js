@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import MB from "../assets/mobile-home.jpg";
 import BG1 from "../assets/Backgound_images/bg1.png";
@@ -12,10 +12,6 @@ import { useMediaQuery } from "react-responsive";
 import { Product } from "../components/Products";
 
 const HomePage = () => {
-  const [index, setIndex] = useState(0);
-  const handleSelect = (selectedIndex) => {
-    setIndex(selectedIndex);
-  };
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   return (
@@ -27,7 +23,7 @@ const HomePage = () => {
           alt="First slide"
         />
       ) : (
-        <Carousel>
+        <Carousel >
           <Carousel.Item>
             <img
               className="d-block w-100 img-fluid aspect-ratio"
