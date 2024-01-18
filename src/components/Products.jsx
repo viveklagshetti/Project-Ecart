@@ -103,115 +103,97 @@ export const Product = () => {
   const ShowProducts = () => {
     return (
       <>
-        <div className="container text-center m-4">
-          <Button
-            variant="outline-dark"
-            className="me-2"
-            style={{
-              borderRadius: "6px",
-              padding: "8px 20px",
-              margin: "10px 10px",
-            }}
-            onClick={() => {
-              setFilterData(allProduct);
-            }}
-          >
-            All
-          </Button>
-          <Button
-            variant="outline-dark"
-            className="me-2"
-            style={{
-              borderRadius: "6px",
-              padding: "8px 20px",
-              margin: "10px 10px",
-            }}
-            onClick={() => {
-              filterProduct("men's clothing");
-            }}
-          >
-            Men's Clothing
-          </Button>
-          <Button
-            variant="outline-dark"
-            className="me-2"
-            style={{
-              borderRadius: "6px",
-              padding: "8px 20px",
-              margin: "10px 10px",
-            }}
-            onClick={() => {
-              filterProduct("women's clothing");
-            }}
-          >
-            Women's Clothing
-          </Button>
-          <Button
-            variant="outline-dark"
-            className="me-2"
-            style={{
-              borderRadius: "6px",
-              padding: "8px 20px",
-              margin: "10px 10px",
-            }}
-            onClick={() => {
-              filterProduct("electronics");
-            }}
-          >
-            Electronics
-          </Button>
-          <Button
-            variant="outline-dark"
-            className="me-2"
-            style={{
-              borderRadius: "6px",
-              padding: "8px 20px",
-              margin: "10px 10px",
-            }}
-            onClick={() => {
-              filterProduct("jewelery");
-            }}
-          >
-            Jewellery
-          </Button>
-        </div>
-        <Row>
-          {filter.map((product, index) => (
-            <Col md={3} className="col-md-3 mb-3" key={index}>
-              <Card className="container cardBody">
-                <Card.Img
-                  className="cardImage"
-                  variant="top"
-                  src={product.image}
-                />
-                <Card.Body>
-                  <Card.Title className="cardTitle mb-0">
-                    {product.title.substring(0, 11)}
-                  </Card.Title>
-                  <Card.Text
-                    className="mb-2"
-                    style={{ fontSize: "21px", fontWeight: "500" }}
-                  >
-                    ${product.price}
-                  </Card.Text>
-                  <Link to={`/shop/${product.id}`}>
-                    <Button variant="outline-dark me-1">Buy Now</Button>
-                  </Link>
-
-                  <Button
-                    variant="dark"
-                    onClick={() => {
-                      handleAddProductToCart(product);
-                    }}
-                  >
-                    Add to Cart
-                  </Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
+       <div className="container text-center my-4 mx-auto">
+        <Row className="justify-content-center">
+          <Col xs={12} sm={6} md={4} lg={2} className="mb-2">
+            <Button
+              variant="outline-dark"
+              className="w-100"
+              onClick={() => {
+                setFilterData(allProduct);
+              }}
+            >
+              All
+            </Button>
+          </Col>
+          <Col xs={12} sm={6} md={4} lg={2} className="mb-2">
+            <Button
+              variant="outline-dark"
+              className="w-100"
+              onClick={() => {
+                filterProduct("men's clothing");
+              }}
+            >
+              Men's Clothing
+            </Button>
+          </Col>
+          <Col xs={12} sm={6} md={4} lg={2} className="mb-2">
+            <Button
+              variant="outline-dark"
+              className="w-100"
+              onClick={() => {
+                filterProduct("women's clothing");
+              }}
+            >
+              Women's Clothing
+            </Button>
+          </Col>
+          <Col xs={12} sm={6} md={4} lg={2} className="mb-2">
+            <Button
+              variant="outline-dark"
+              className="w-100"
+              onClick={() => {
+                filterProduct("electronics");
+              }}
+            >
+              Electronics
+            </Button>
+          </Col>
+          <Col xs={12} sm={6} md={4} lg={2} className="mb-2">
+            <Button
+              variant="outline-dark"
+              className="w-100"
+              onClick={() => {
+                filterProduct("jewelry");
+              }}
+            >
+              Jewelry
+            </Button>
+          </Col>
         </Row>
-      </>
+      </div>
+      <Row xs={1} md={2} lg={3} xl={4} className="g-4 mx-auto">
+        {filter.map((product, index) => (
+          <Col key={index}>
+            <Card className="container cardBody">
+              <Card.Img className="cardImage" variant="top" src={product.image} />
+              <Card.Body>
+                <Card.Title className="cardTitle mb-0">
+                  {product.title.substring(0, 11)}
+                </Card.Title>
+                <Card.Text className="mb-2" style={{ fontSize: "21px", fontWeight: "500" }}>
+                  ${product.price}
+                </Card.Text>
+                <Link to={`/shop/${product.id}`} className="text-decoration-none">
+                  <div className="d-grid gap-1 d-md-flex justify-content-md-between mb-1 ">
+                    <Button variant="outline-dark">Buy Now</Button>
+                    <Button
+                      variant="dark"
+                      onClick={() => {
+                        handleAddProductToCart(product);
+                      }}
+                      className="ms-md-2"
+                    >
+                      Add to Cart
+                    </Button>
+                  </div>
+                </Link>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </>
     );
   };
 

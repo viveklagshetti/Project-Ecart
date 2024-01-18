@@ -108,22 +108,6 @@ const ProductPage = () => {
 
   const [filter, setFilterData] = useState(allProduct); //To filter with the category
 
-  // Function to filter products based on category
-  // const filterProduct = (category) => {
-  //   const updatedData = allProduct.filter(
-  //     (product) => product.category === category
-  //   );
-  //   setFilterData(updatedData);
-  // };
-
-  // useEffect(() => {
-  //   //If the SingleProduct Data is Present then only the filterProduct will initilised
-  //   if (singleProduct && singleProduct.category) {
-  //     // Update the similar products when the category changes
-  //     filterProduct(singleProduct.category);
-  //   }
-  // }, [singleProduct]);
-
   const filterProduct = useCallback(
     (category) => {
       const updatedData = allProduct.filter(
@@ -141,15 +125,16 @@ const ProductPage = () => {
       filterProduct(singleProduct.category);
     }
   }, [singleProduct, filterProduct]);
+
   const SimilarProduct = () => {
     const filteredProducts = filter.filter(
       (product) => product.id !== singleProduct.id
     );
     return (
       <>
-        <Row>
+        <Row xs={1} sm={2} md={3} lg={4} className="g-4 mx-auto">
           {filteredProducts.map((product, index) => (
-            <Col md={3} className="col-md-3 mb-3" key={index}>
+            <Col key={index} className="mb-3">
               <Card className="container cardBody">
                 <Card.Img
                   className="cardImage"
@@ -166,17 +151,20 @@ const ProductPage = () => {
                   >
                     ${product.price}
                   </Card.Text>
-                  <Link to={`/shop/${product.id}`}>
-                    <Button variant="outline-dark me-1">Buy Now</Button>
-                  </Link>
-                  <Button
-                    variant="dark"
-                    onClick={() => {
-                      handleAddProductToCart(product);
-                    }}
-                  >
-                    Add to Cart
-                  </Button>
+                  <Link to={`/shop/${product.id}`} className="text-decoration-none">
+                  <div className="d-grid gap-2 d-md-flex justify-content-md-between mb-1 ">
+                    <Button variant="outline-dark">Buy Now</Button>
+                    <Button
+                      variant="dark"
+                      onClick={() => {
+                        handleAddProductToCart(product);
+                      }}
+                      className="ms-md-2"
+                    >
+                      Add to Cart
+                    </Button>
+                  </div>
+                </Link>
                 </Card.Body>
               </Card>
             </Col>
@@ -190,15 +178,15 @@ const ProductPage = () => {
     return (
       <div className="container mt-2 mb-5">
         <Row>
-          <div className="col-md-6">
+          <Col md={6}>
             <img
               className="img-fluid mt-5"
               src={singleProduct.image}
               alt={singleProduct.title}
               style={{ maxWidth: "100%", height: "auto", maxHeight: "500px" }}
             />
-          </div>
-          <div className="col-md-6">
+          </Col>
+          <Col md={6} className="">
             <h1
               className="text-uppercase text-black-50 mt-5"
               style={{ fontFamily: "Poppins" }}
@@ -241,7 +229,9 @@ const ProductPage = () => {
             >
               {singleProduct.description}
             </p>
-            <Button variant="dark me-2">Buy Now</Button>
+            <Button variant="dark me-2" className="mb-2 mb-md-0 ">
+              Buy Now
+            </Button>
             <Button
               variant="outline-dark"
               onClick={() => {
@@ -250,7 +240,7 @@ const ProductPage = () => {
             >
               Add to Cart
             </Button>
-          </div>
+          </Col>
         </Row>
       </div>
     );
