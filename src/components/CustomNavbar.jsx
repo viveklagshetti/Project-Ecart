@@ -44,7 +44,6 @@ const CustomNavbar = () => {
         <Navbar.Brand
           onClick={() => {
             navigate("/");
-            closeNavbarToggle();
           }}
           className="ms-3"
         >
@@ -112,7 +111,12 @@ const CustomNavbar = () => {
             <box-icon name="user"></box-icon>
           </Nav.Link>
           <Nav.Link href="#action2" className="me-4">
-            <span onClick={() => navigate("/cart")}>
+            <span
+              onClick={() => {
+                navigate("/cart");
+                closeNavbarToggle();
+              }}
+            >
               <box-icon name="shopping-bag"></box-icon>
               {cartItems.length > 0 && <span>({cartItems.length})</span>}
             </span>
