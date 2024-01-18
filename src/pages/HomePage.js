@@ -71,7 +71,7 @@ const HomePage = () => {
 
       {/* Lower Image */}
       <div className="container-fluid">
-        <img src={lower} alt="Lower" className="img-fluid" />
+        <img src={lower} alt="Lower" className="img-fluid aspect-ratio-lower" />
       </div>
 
       {/* Product component */}

@@ -51,6 +51,11 @@ body {
 /* Set the aspect ratio for the images */
 .aspect-ratio {
   width: 100% ;
-  min-height: 50vh; /* Adjust this value based on your design preferences */
+  min-height: 70vh; /* Adjust this value based on your design preferences */
+  object-fit:cover;
+}
+.aspect-ratio-lower {
+  width: 100% ;
+  min-height: 10vh; /* Adjust this value based on your design preferences */
   object-fit:cover;
 }
