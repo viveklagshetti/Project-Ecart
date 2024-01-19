@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { userAdd } from "../redux/action";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+
 import SignupImage from "../assets/signup_background.png";
 const SignUpPage = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [userName, setUserName] = useState("");
