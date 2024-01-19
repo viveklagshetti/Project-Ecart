@@ -1,5 +1,8 @@
 import * as api from "../../services/api";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
+const navigate = useNavigate;
 //Fetch All Product Reducer Starts..
 const fetchAllProductsSuccess = (products) => {
   return {
@@ -109,15 +112,58 @@ export const userAddError = (error) => {
   };
 };
 
+// redux/action.js
+
 export const userAdd = (email, password, name) => {
   return async (dispatch) => {
     try {
+      // Check if the user with the given email already exists
+      const existingUser = await api.loginUserData(email, password);
+
+      if (existingUser) {
+        // If the user already exists, throw an error
+        throw new Error("User already exists");
+      }
+
+      // If the user doesn't exist, proceed with user registration
       const response = await api.addUser(email, password, name);
       console.log("User Added Response ", response);
       dispatch(userAddSuccess(response));
+
+      // Show success toast and navigate to the login page
+      toast.success("Registered Successfully!", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+      navigate("/login");
     } catch (error) {
       console.error("Error while adding user", error?.message);
-      dispatch(userAddError(error));
+
+      // Show error toast if the user already exists
+      if (error.message === "User already exists") {
+        toast.error("User already exists!", {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      } else {
+        // Show a general error toast for other errors
+        toast.error("Email is already registered!", {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      }
     }
   };
 };

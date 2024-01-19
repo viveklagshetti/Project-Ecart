@@ -15,29 +15,7 @@ const SignUpPage = () => {
 
   const handleAccount = (event) => {
     event.preventDefault();
-
-    try {
-      dispatch(userAdd(userEmail, userPassword, userName));
-      toast.success("Regsitered Successfully!", {
-        position: "top-right",
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
-      navigate("/login");
-    } catch (error) {
-      console.error("Login Failed", error?.message);
-      toast.error("Login Failed!", {
-        position: "top-right",
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
-    }
+    dispatch(userAdd(userEmail, userPassword, userName));
   };
 
   return (
