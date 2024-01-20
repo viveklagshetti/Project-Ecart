@@ -13,6 +13,7 @@ const CustomNavbar = () => {
   const user = useSelector((state) => state.loginUserReducer.user);
 
   const [showToast, setShowToast] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   const toggleToast = () => {
     setShowToast(!showToast);
@@ -34,26 +35,30 @@ const CustomNavbar = () => {
   };
 
   const closeNavbarToggle = () => {
-    // Close the navbar toggle
-    document.getElementById("navbar-toggler").click();
+    setExpanded(false);
   };
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary shadow fixed-top">
+    <Navbar
+      expand="lg"
+      className="bg-body-tertiary shadow fixed-top"
+      expanded={expanded}
+    >
       <Container fluid className="container-fluid">
         <Navbar.Brand
           onClick={() => {
             navigate("/");
+            closeNavbarToggle();
           }}
           className="ms-3"
         >
           <box-icon name="cube-alt" size="lg"></box-icon>
         </Navbar.Brand>
-        <Navbar.Toggle id="navbar-toggler" aria-controls="navbarScroll" />
-        <Navbar.Collapse
-          id="navbarScroll"
-          onSelect={closeNavbarToggle} // Close the toggle when a link is clicked
-        >
+        <Navbar.Toggle
+          onClick={() => setExpanded(!expanded)}
+          aria-controls="navbarScroll"
+        />
+        <Navbar.Collapse id="navbarScroll">
           <Nav
             className="navbarItems my-auto my-1 my-lg-0 "
             style={{ maxHeight: "100px" }}
@@ -62,8 +67,8 @@ const CustomNavbar = () => {
             <Nav.Link
               className="me-3"
               onClick={() => {
-                closeNavbarToggle();
                 navigate("/");
+                closeNavbarToggle();
               }}
             >
               Home
@@ -71,8 +76,8 @@ const CustomNavbar = () => {
             <Nav.Link
               className="me-3"
               onClick={() => {
-                closeNavbarToggle();
                 navigate("/shop");
+                closeNavbarToggle();
               }}
             >
               Shop
@@ -80,8 +85,8 @@ const CustomNavbar = () => {
             <Nav.Link
               className="me-3"
               onClick={() => {
-                closeNavbarToggle();
                 navigate("/products");
+                closeNavbarToggle();
               }}
             >
               Products
@@ -89,8 +94,8 @@ const CustomNavbar = () => {
             <Nav.Link
               className="me-3"
               onClick={() => {
-                closeNavbarToggle();
                 navigate("/about-us");
+                closeNavbarToggle();
               }}
             >
               About Us
@@ -110,13 +115,15 @@ const CustomNavbar = () => {
           <Nav.Link className="me-3" onClick={toggleToast}>
             <box-icon name="user"></box-icon>
           </Nav.Link>
-          <Nav.Link href="#action2" className="me-4">
-            <span
-              onClick={() => {
-                navigate("/cart");
-                closeNavbarToggle();
-              }}
-            >
+          <Nav.Link
+            href="#action2"
+            className="me-4"
+            onClick={() => {
+              navigate("/cart");
+              closeNavbarToggle();
+            }}
+          >
+            <span>
               <box-icon name="shopping-bag"></box-icon>
               {cartItems.length > 0 && <span>({cartItems.length})</span>}
             </span>
@@ -150,7 +157,6 @@ const CustomNavbar = () => {
               <Button
                 variant="dark"
                 onClick={() => {
-                  closeNavbarToggle();
                   handleLogout();
                 }}
                 name="Logout"
@@ -164,7 +170,6 @@ const CustomNavbar = () => {
                 <Button
                   variant="dark"
                   onClick={() => {
-                    closeNavbarToggle();
                     toggleToast();
                   }}
                   name="Login"
@@ -177,7 +182,6 @@ const CustomNavbar = () => {
                 <Button
                   variant="dark ms-2"
                   onClick={() => {
-                    closeNavbarToggle();
                     toggleToast();
                   }}
                   name=" SignUp"
