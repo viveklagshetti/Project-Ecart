@@ -36,6 +36,9 @@ export const Product = () => {
         setLoading(false);
         // setErrorText("No Data Found");
       });
+
+      window.scrollTo(0, 0);
+
   }, [dispatch]);
 
   //FEATURE 1 :- Adding product in the category to store the addProductToCart Function
